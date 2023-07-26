@@ -6,11 +6,13 @@ EXPOSE 3000
 
 COPY package.json yarn.lock ./
 
-COPY . .
-
 RUN yarn install
 
-CMD [ "yarn", "start:dev" ]
+COPY . .
+
+RUN yarn build
+
+CMD yarn install ; yarn run start:dev
 
 # ---------------- 
 FROM node:18-alpine AS app_build
@@ -44,4 +46,4 @@ COPY --from=app_dependencies /app/node_modules /app/node_modules
 
 EXPOSE 3000
 
-CMD [ "yarn", "start:prod" ]
+CMD  yarn run start:prod
