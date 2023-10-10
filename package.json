@@ -10,9 +10,7 @@
     "lint": "eslint \"src/**/*.ts\" --fix -f json -o ./target/lint/report.json",
     "lint:local": "npx eslint . --ext .ts,.tsx",
     "format": "prettier --write \"src/**/*.ts\"",
-    "test": "jest --coverage --passWithNoTests --detectOpenHandles --runInBand",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test": "jest --coverage --passWithNoTests --detectOpenHandles --runInBand"
   },
   "dependencies": {
     "express": "^4.18.2"
