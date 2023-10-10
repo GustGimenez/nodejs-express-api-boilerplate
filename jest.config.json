@@ -1,0 +1,43 @@
+{
+  "clearMocks": false,
+  "rootDir": "src",
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "testRegex": [".*\\.spec\\.ts$"],
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverageFrom": [
+    "**/*.(t|j)s",
+    "!server.ts",
+    "!app.ts",
+    "!routes.ts",
+    "!**/*.module.ts",
+    "!**/migrations/*.ts"
+  ],
+  "cacheDirectory": "../target/jest-cache",
+  "testEnvironment": "node",
+  "reporters": [
+    "default",
+    [
+      "jest-junit",
+      {
+        "outputDirectory": "./target/test-results/",
+        "outputName": "TESTS-results-jest.xml"
+      }
+    ]
+  ],
+  "preset": "ts-jest",
+  "coverageDirectory": "../target/test-results/",
+  "coveragePathIgnorePatterns": [
+    "/node_modules",
+    "index.ts",
+    ".mock.ts",
+    ".provider.ts",
+    ".pipes.ts",
+    "/swagger",
+    ".interface.ts",
+    ".constant.ts",
+    "/errors"
+  ],
+  "coverageReporters": ["clover", "json", "lcov", "text", "html", "cobertura"]
+}
